@@ -1,45 +1,35 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import { Provider as StoreProvider, useSelector } from 'react-redux';
+import { PaperProvider, Text, useTheme } from 'react-native-paper';
+import { store } from './src/store/store';
+import { lightTheme, darkTheme } from './src/theme/theme';
+import { View, StatusBar } from 'react-native';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+// We will create and import RootNavigator in the next phase
+// import RootNavigator from './src/navigation/RootNavigator';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+const ThemedApp = () => {
+  // Note: To make TypeScript happy for now, we add `: any` to the state
+  const themeMode = useSelector((state: any) => state.theme.mode);
+  const currentTheme = themeMode === 'dark' ? darkTheme : lightTheme;
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <PaperProvider theme={currentTheme}>
+      {/* This is a temporary placeholder until we build our navigation */}
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: currentTheme.colors.background }}>
+        <StatusBar barStyle={currentTheme.dark ? 'light-content' : 'dark-content'} />
+        <Text>Setup Complete. Ready for Phase 3.</Text>
+      </View>
+    </PaperProvider>
   );
-}
+};
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
+const App = () => {
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
+    <StoreProvider store={store}>
+      <ThemedApp />
+    </StoreProvider>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+};
 
 export default App;

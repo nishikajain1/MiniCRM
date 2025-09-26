@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "test@example.com",
+      "password": "password123",
+      "name": "Test User"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Global Tech Inc.",
+      "email": "contact@globaltech.com",
+      "phone": "555-0101",
+      "company": "Global Tech Inc."
+    },
+    {
+      "id": 2,
+      "name": "Innovate Solutions",
+      "email": "info@innovate.dev",
+      "phone": "555-0102",
+      "company": "Innovate Solutions"
+    },
+    {
+      "id": 3,
+      "name": "Quantum Leap Co.",
+      "email": "hello@quantum.com",
+      "phone": "555-0103",
+      "company": "Quantum Leap Co."
+    }
+  ],
+  "leads": [
+    {
+      "id": 1, "customerId": 1, "title": "Website Redesign Project", "description": "Initial discussion about redesigning the corporate website.", "status": "New", "value": 25000, "createdAt": "2025-09-15T10:00:00Z"
+    },
+    {
+      "id": 2, "customerId": 1, "title": "Mobile App Development", "description": "Follow-up call scheduled to discuss the mobile app proposal.", "status": "Contacted", "value": 50000, "createdAt": "2025-09-16T14:30:00Z"
+    },
+    {
+      "id": 3, "customerId": 2, "title": "Cloud Migration Service", "description": "Proposal sent and accepted.", "status": "Converted", "value": 75000, "createdAt": "2025-09-12T11:00:00Z"
+    },
+    {
+      "id": 4, "customerId": 1, "title": "SEO Optimization Contract", "description": "Customer did not proceed with the offer.", "status": "Lost", "value": 10000, "createdAt": "2025-09-18T09:00:00Z"
+    }
+  ]
+}
